@@ -28,7 +28,7 @@ if [ -d "$path_2" ]; then
 	meta_file="$path_2/${table_name}.meta"
         data_file="$path_2/${table_name}.data"
         zenity --text-info --title="Data from $selected_tb" --width=800 --height=600 --filename="$path_3"
-        cd "$HOME/DB_Bash_Script/TB_funcs"
+        cd "$HOME/DB_BashScript/TB_funcs"
         ./view "$meta_file" "$data_file"
         return 1
     else
