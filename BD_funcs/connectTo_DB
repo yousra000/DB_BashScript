@@ -7,16 +7,27 @@ DB_name=$(zenity --entry --title="Database Selection" \
     --text="Enter the name of the database:" \
     --width=400)
 
+if [ $? -ne 0 ]; then
+    zenity --info --text="Operation canceled." --width=300
+    cd "$HOME/Bash_Script_DB/MDY_DB/BD_funcs"
+    ./list_menu
+    exit 0
+fi
+
+
 if ! CheckIfValidOfName "$DB_name"; then
     zenity --error --text="Invalid database name. Please try again." --width=300
     return 1
 fi
 
 
+
 db_path="$HOME/db/$DB_name"
 if [ ! -d "$db_path" ]; then
     zenity --error --text="Database '$DB_name' does not exist in the path: $db_path" --width=300
-    return 1
+    cd "$HOME/Bash_Script_DB/MDY_DB/BD_funcs"
+    ./list_menu
+    exit 1
 fi
 
 while true; do
@@ -33,13 +44,14 @@ while true; do
         "8.View Table" \
 	    "9.Exit" \
         --width=400 --height=400)
-
     if [ $? -ne 0 ]; then
         zenity --info --text="Operation canceled." --width=300
         cd "$HOME/MDY_DB/BD_funcs"
-        ./list_menu  
+        ./list_menu
+	exit 0
     fi
-    cd "$HOME/MDY_DB/TB_funcs"  
+
+    cd "$HOME/DB_BashScript/TB_funcs"  
     case $option in
         "1.Create Table")
             . create_table "$db_path"
@@ -67,7 +79,7 @@ while true; do
     		    ;;
     	 "9.Exit")
     	 	zenity --info --text="Thank you" --width=300
-    	        cd "$HOME/MDY_DB/BD_funcs"  
+    	        cd "$HOME/DB_BashScript/BD_funcs"  
             	. list_menu
                 ;;
     esac
