@@ -32,8 +32,6 @@ if [[ ! -f "$data_file" || ! -s "$data_file" ]]; then
 else
 
     table_data=$(cat "$data_file")
-
-
     columns=($(sed -n '1p' "$meta_file"))
 
 
