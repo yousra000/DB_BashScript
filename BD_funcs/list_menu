@@ -5,7 +5,11 @@ if [ -d "$HOME/db" ]; then
     	items=("1.Create Database" "2.List Database" "3.Connect To Databases" "4.Drop Database")
     	while item=$(zenity --title="Database options" --text="select one of the following: " --list \
                --column="Enter your choice" "${items[@]}" --width=300 --height=300)
-            cd "$HOME/MDY_DB/BD_funcs"  
+	if [ $? -ne 0 ]; then
+            echo "Exiting the script."
+            exit 0
+        fi
+            cd "$HOME/DB_BashScript/BD_funcs"  
 	    do
 	    case "$item" in
 		    "${items[0]}")
