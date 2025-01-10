@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export GTK_THEME="Adwaita:dark"
+
 if [ -d "$HOME/db" ]; then
     	#PS3=''
     	items=("1.Create Database" "2.List Database" "3.Connect To Databases" "4.Drop Database")

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export GTK_THEME="Adwaita:dark"
 
 meta_file="$1"
 data_file="$2"

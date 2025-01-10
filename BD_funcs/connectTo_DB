@@ -2,6 +2,7 @@
 
 source ./set_condition
 
+export GTK_THEME="Adwaita:dark"
 
 DB_name=$(zenity --entry --title="Database Selection" \
     --text="Enter the name of the database:" \

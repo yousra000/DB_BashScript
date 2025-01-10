@@ -1,6 +1,9 @@
 #!/bin/bash
 
+
 source ./set_condition
+
+export GTK_THEME="Adwaita:dark"
 
 while true; do
     DB_name=$(zenity --entry --title="Create Database" --text="Enter Name:" --width=400)

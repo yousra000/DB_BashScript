@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export GTK_THEME="Adwaita:dark"
+
 path=~/db
 
 dbs=$(ls -1 $path)
