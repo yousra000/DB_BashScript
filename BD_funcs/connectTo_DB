@@ -2,6 +2,7 @@
 
 source ./set_condition
 
+export GTK_THEME="Adwaita:dark"
 
 DB_name=$(zenity --entry --title="Database Selection" \
     --text="Enter the name of the database:" \
@@ -9,7 +10,7 @@ DB_name=$(zenity --entry --title="Database Selection" \
 
 if [ $? -ne 0 ]; then
     zenity --info --text="Operation canceled." --width=300
-    cd "$HOME/DB_Bash_Script/BD_funcs"
+    cd "$HOME/DB_BashScript/BD_funcs"
     ./list_menu
     exit 0
 fi
@@ -25,7 +26,7 @@ fi
 db_path="$HOME/db/$DB_name"
 if [ ! -d "$db_path" ]; then
     zenity --error --text="Database '$DB_name' does not exist in the path: $db_path" --width=300
-    cd "$HOME/DB_Bash_Script/BD_funcs"
+    cd "$HOME/DB_BashScript/BD_funcs"
     ./list_menu
     exit 1
 fi
@@ -46,7 +47,7 @@ while true; do
         --width=400 --height=400)
     if [ $? -ne 0 ]; then
         zenity --info --text="Operation canceled." --width=300
-        cd "$HOME/MDY_DB/BD_funcs"
+        cd "$HOME/DB_BashScript/BD_funcs"
         ./list_menu
 	exit 0
     fi

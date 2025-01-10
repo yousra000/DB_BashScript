@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+export GTK_THEME="Adwaita:dark"
+
 db_path="$1"
 
 table_name=$(zenity --entry --text="Enter Table Name That You Want To Insert " --width=400)
@@ -17,7 +19,7 @@ if [[ ! -f $meta_file ]]; then
     return 1
 fi
 
-cd "$HOME/DB_Bash_Script/TB_funcs"
+cd "$HOME/DB_BashScript/TB_funcs"
 ./view "$meta_file" "$data_file"
 
 IFS=' ' read -a columns_array <<< "$(sed -n '1p' "$meta_file")"

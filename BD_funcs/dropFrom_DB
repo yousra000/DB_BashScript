@@ -2,6 +2,8 @@
 
 source  ./set_condition
 
+export GTK_THEME="Adwaita:dark"
+
 while true; do
     db_name=$(zenity --entry --title="Drop Database" --text="Enter the name of the database:" --width=400)
 

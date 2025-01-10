@@ -1,6 +1,9 @@
 #!/usr/bin/bash
 
+export GTK_THEME="Adwaita:dark"
+
 db_path="$1"
+
 
 table_name=$(zenity --entry --text="Enter Table Name That You Want To Drop: " --width=400)
 

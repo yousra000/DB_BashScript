@@ -1,6 +1,9 @@
 #!/bin/bash
 
+
 source ./set_condition
+
+export GTK_THEME="Adwaita:dark"
 
 while true; do
     DB_name=$(zenity --entry --title="Create Database" --text="Enter Name:" --width=400)
@@ -10,7 +13,10 @@ while true; do
         return 1
     fi
     DB_name=$(echo $DB_name | tr ' ' '_')
-    
+    if [ -d "$HOME/db/$DB_name" ]; then
+        zenity --error --text="Database '$DB_name' already exists. Please choose another name." --width=300
+        continue
+    fi
     if CheckIfValidOfName $DB_name; then
         mkdir -p "$HOME/db/$DB_name"
         zenity --info --text="Database '$DB_name' created successfully" --width=300
@@ -21,4 +27,6 @@ while true; do
         continue
     fi
 done
+
+
 

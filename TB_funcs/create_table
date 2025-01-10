@@ -2,6 +2,7 @@
 
 source ./set_condition
 
+export GTK_THEME="Adwaita:dark"
 
 db_path="$1"
 

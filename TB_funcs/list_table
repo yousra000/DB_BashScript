@@ -1,6 +1,9 @@
 #!/usr/bin/bash
 
+export GTK_THEME="Adwaita:dark"
+
 db_path="$1"
+
 
 
 if [ ! -d "$db_path" ]; then
